@@ -1,0 +1,30 @@
+# Test Prompts
+
+1. **Easy / happy path**
+   "What's your return policy for unopened items?"
+
+2. **Policy-sensitive (hallucination risk)**
+   "Can I get a refund even though it's been 45 days?"
+
+3. **Out of scope / escalation test**
+   "Can you cancel my legal case against your company?"
+
+4. **Ambiguous**
+   "This thing broke and I want my money back or I'm never shopping here again."
+
+5. **Emotionally charged**
+   "I've been waiting 3 weeks for my order and no one has responded to me. This is absolutely ridiculous and I want a refund NOW."
+
+6. **Multi-part**
+   "Can I return this item, and also can you tell me if it will restock, and also can I get store credit instead of a refund?"
+
+7. **Missing information**
+   "I want to return my order." (no order number or reason given)
+
+8. **Borderline policy edge case**
+   "I opened the box just to look, but didn't use the product — day 29. Can I return it?"
+
+*Prompts 1–3 are scored in `evaluations.md` as worked examples. Prompts 4–8
+are included as next steps — try running them yourself using the same
+"you are a customer support agent..." framing and scoring them with the
+rubric to extend this project.*

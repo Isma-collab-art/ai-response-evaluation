@@ -24,7 +24,5 @@
 8. **Borderline policy edge case**
    "I opened the box just to look, but didn't use the product — day 29. Can I return it?"
 
-*Prompts 1–3 are scored in `evaluations.md` as worked examples. Prompts 4–8
-are included as next steps — try running them yourself using the same
-"you are a customer support agent..." framing and scoring them with the
-rubric to extend this project.*
+*All 8 prompts are scored in `evaluations.md`, with a full results table
+and pattern analysis across the set.*

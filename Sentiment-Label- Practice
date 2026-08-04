@@ -1,0 +1,51 @@
+# Sentiment Labeling Practice: Rubric Application and Edge Case Analysis
+
+## Overview
+
+As part of building hands-on skills for AI QA and LLM evaluation work, I completed a small sentiment-labeling exercise on 11 sample customer support messages. Each message was labeled as **Positive**, **Negative**, or **Neutral** using a defined rubric, with reasoning documented for every label — the same discipline used in real annotation and evaluation workflows.
+
+## Rubric Used
+
+- **Positive** — customer expresses satisfaction, appreciation, or a good experience
+- **Negative** — customer expresses frustration, complaint, or a bad experience
+- **Neutral** — customer states a fact or asks a question, with no clear emotion
+
+## Results
+
+- 8 of 11 messages were straightforward and labeled correctly on the first pass
+- 3 messages were genuinely ambiguous and required deeper reasoning against the rubric
+
+## Edge Case Analysis
+
+### Case 1 — Flat tone with underlying disappointment
+**Message:** *"I guess it's fine, not what I expected but whatever."*
+
+**Initial read vs. final label:** Neutral (kept)
+
+**Reasoning:** The message lacks strong positive or negative language, but the phrasing ("not what I expected," "whatever") could read as mild dissatisfaction. This is a case where two annotators could reasonably disagree. It highlighted the need for a tie-breaking rule such as *"if tone is flat but wording implies dissatisfaction, lean Negative."*
+
+### Case 2 — Polite tone masking a real complaint
+**Message:** *"I've contacted support 3 times about this issue and it's still not resolved, but I know you guys are probably busy."*
+
+**Initial read:** Positive
+**Final label:** Negative
+
+**Reasoning:** My first instinct was influenced by the polite, understanding tone of the message. But testing the core claim in isolation — "contacted support 3 times, still unresolved" — makes clear this is a complaint about an unresolved problem. Politeness in delivery doesn't change the underlying sentiment. This case demonstrated the difference between **tone** (how something is said) and **substance** (what is actually being reported), which annotators need to separate carefully.
+
+### Case 3 — Absence of negativity mistaken for positivity
+**Message:** *"The product works okay, I've had no issues so far."*
+
+**Initial read:** Positive
+**Final label:** Neutral
+
+**Reasoning:** My first instinct was to label this Positive because the customer wasn't complaining. But "not complaining" is not the same as "expressing satisfaction." The message contains no language of appreciation or enthusiasm — it's a flat status update. This is one of the most common mistakes new annotators make, and catching it clarified the boundary between Neutral and Positive going forward.
+
+## Key Takeaways
+
+1. **Absence of negativity is not the same as positivity.** Neutral exists specifically for flat, factual statements with no strong emotion in either direction.
+2. **Tone can mask substance.** A polite or softly-worded message can still describe a negative experience; the core claim should be evaluated independently of its delivery.
+3. **Ambiguous cases are where annotation guidelines matter most.** Clear tie-breaking rules (e.g., how to treat flat-but-implied-negative tone) reduce inter-annotator disagreement and improve dataset consistency.
+
+## Why This Matters for AI Evaluation Work
+
+Labeling the easy cases correctly is table stakes. What distinguishes a strong annotator — and a strong AI evaluator — is the ability to recognize ambiguity, reason through it against a defined rubric, and document that reasoning clearly enough for someone else to audit. This exercise was a deliberate practice of that skill, building directly on the rubric-based evaluation approach used in my first AI QA portfolio project.
